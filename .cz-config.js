@@ -1,3 +1,7 @@
+const fs = require('node:fs')
+const path = require('node:path')
+const packages = fs.readdirSync(path.resolve(__dirname, 'packages'))
+
 module.exports = {
     types: [
       { value: "feat", name: "feat:     ✨  A new feature", emoji: ":sparkles:" },
@@ -13,7 +17,9 @@ module.exports = {
       { value: "revert", name: "revert:   ⏪️  Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: true,
-    scopes: ['base', 'main', 'root'],
+
+    scopes: [...packages],
+
     usePreparedCommit: false, // to re-use commit from ./.git/COMMIT_EDITMSG
     allowTicketNumber: false,
     isTicketNumberRequired: false,
@@ -32,7 +38,9 @@ module.exports = {
       confirmCommit: 'Are you sure you want to proceed with the commit above?',
     },
     
-    allowCustomScopes: false,
+    allowCustomScopes: true,
+    customScopesAlign: "bottom",
+    customScopesAlias: "custom",
     allowBreakingChanges: ['feat', 'fix'],
 
     skipQuestions: ['body'],
