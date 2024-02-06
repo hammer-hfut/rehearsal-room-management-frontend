@@ -28,6 +28,8 @@ export default defineConfig({
     },
     server: {
         host: 'localhost',
-        hmr: true
+        port: 8088,
+        hmr: true, // 热更新
+        open: true
     }
 })
