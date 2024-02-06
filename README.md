@@ -1,4 +1,5 @@
 ## 项目启动
+
   项目采用pnpm + workspace进行monorepo管理，具体项目位于packages下方，需要进入文件才能运行项目
     - base 项目基座
     - main 项目页面
@@ -59,6 +60,8 @@ feat: 预约系统初始化界面
 都可以使用git cz来提交
 
 - 第一次选择为类型
+- 第二次选择为修改的包(base, main...)
+  - 修改根目录用empty
 - 第二次选择为简介内容
 - 之后的都可以按enter跳过
 
