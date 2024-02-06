@@ -29,3 +29,6 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Ignore specific TypeScript declaration files
+components.d.ts
