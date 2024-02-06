@@ -8,6 +8,7 @@ module.exports = {
     },
     'extends': [
         'plugin:vue/vue3-essential',
+        'plugin:vue/vue3-recommended',
         'eslint:recommended',
         '@vue/eslint-config-typescript'
     ],
@@ -33,6 +34,23 @@ module.exports = {
         'array-bracket-spacing': [ 'error', 'always' ],
 
         'vue/html-indent': [ 'error', 4 ],
-        'vue-multi/word-component-names': 'off'
+        'vue-multi/word-component-names': 'off',
+        'vue/singleline-html-element-content-newline': 'off', // 要求单行元素的内容前后有一个换行符
+        'vue/max-attributes-per-line': [ 'error', {
+            'singleline': {
+                max: 3
+            },
+            'multiline': {
+                max: 1
+            }
+        } ],
+        'vue/html-self-closing': [ 'error', {
+            'html': {
+                'normal': 'never',
+                'void': 'always',
+                'component': 'always'
+            }
+        } ]
     }
+
 }

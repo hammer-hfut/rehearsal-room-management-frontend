@@ -4,7 +4,6 @@
         <iframe
             :src="src"
             name="content"
-            @load="postMsg"
             seamless
         ></iframe>
     </div>
@@ -16,7 +15,7 @@ import { watch } from 'vue'
 
 const router = useRouter()
 
-let src = undefined
+let src: string | undefined = undefined
 const init = () => {
     console.log(router.currentRoute.value)
     const { meta: { origin, pathName } } = router.currentRoute.value
