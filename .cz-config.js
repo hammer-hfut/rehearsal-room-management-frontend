@@ -13,7 +13,7 @@ module.exports = {
       { value: "revert", name: "revert:   ⏪️  Reverts a previous commit", emoji: ":rewind:" }
     ],
     useEmoji: true,
-  
+    scopes: ['base', 'main', 'root'],
     usePreparedCommit: false, // to re-use commit from ./.git/COMMIT_EDITMSG
     allowTicketNumber: false,
     isTicketNumberRequired: false,
@@ -32,10 +32,10 @@ module.exports = {
       confirmCommit: 'Are you sure you want to proceed with the commit above?',
     },
     
-    allowCustomScopes: true,
+    allowCustomScopes: false,
     allowBreakingChanges: ['feat', 'fix'],
 
-    skipQuestions: ['scope', 'body'],
+    skipQuestions: ['body'],
     defaultScope: '___CUSTOM___:',
   
     // limit subject length

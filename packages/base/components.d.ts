@@ -11,5 +11,6 @@ declare module 'vue' {
     ASpace: typeof import('@arco-design/web-vue')['Space']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Template: typeof import('./src/components/template.vue')['default']
   }
 }
