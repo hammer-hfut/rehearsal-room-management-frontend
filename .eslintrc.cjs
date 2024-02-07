@@ -16,11 +16,14 @@ module.exports = {
         ecmaVersion: 'latest'
     },
     plugins: [
-        'vue'
+        'vue',
+        'import',
+        'unused-imports'
     ],
     rules: {
         'no-var': 'error',
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+        'no-unused-vars': 'error',
         'quotes': [ 2, 'single' ],
         'eqeqeq': [ 'error', 'always' ],
         'semi': [ 2, 'never' ],
@@ -50,7 +53,10 @@ module.exports = {
                 'void': 'always',
                 'component': 'always'
             }
-        } ]
+        } ],
+        'unused-imports/no-unused-imports-ts': 'error'
+        // 'import/no-unused-modules': [ 2, { 'unusedExports': true } ],
+
     }
 
 }
