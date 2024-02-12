@@ -38,7 +38,7 @@
 
                 <a-menu-item
                     v-else
-                    :key="item.key"
+                    :key="item.key + 1"
                 >
                     <template #icon>
                         <component :is="item.icon" />

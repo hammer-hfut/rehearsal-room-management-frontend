@@ -5,7 +5,6 @@
             class="main-iframe"
             :src="src"
             name="content"
-            seamless
         ></iframe>
     </div>
 </template>
@@ -37,14 +36,11 @@ watch(() => router.currentRoute.value.path, () => {
     overflow: hidden;
 
     .main-iframe {
-        position: fixed;
-        inset: 0;
-        top: 30px;
-        left: 20%;
-        z-index: 1;
-        width: calc(100vw - 20%);
-        height: calc(100vh - 30px * 2);
+        width: calc(100% - 20px * 2);
+        height: calc(100% - 20px * 2);
+        margin: 20px;
+        border: 0;
     }
-
 }
+
 </style>

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // const TemplateVue = () => import('../view/template.vue')
-const MainVue = () => import('../components/mainMenu/index.vue')
+const Main = () => import('../view/main.vue')
 
 const main = {
     origin:
@@ -18,7 +18,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'Test',
-            component: MainVue,
+            component: Main,
             meta: {
                 ...main,
                 name: '测试',
