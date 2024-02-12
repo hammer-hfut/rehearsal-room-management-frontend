@@ -54,7 +54,8 @@ module.exports = {
                 'component': 'always'
             }
         } ],
-        'unused-imports/no-unused-imports-ts': 'error'
+        'unused-imports/no-unused-imports-ts': 'error',
+        'vue/multi-word-component-names': 'off'
         // 'import/no-unused-modules': [ 2, { 'unusedExports': true } ],
 
     }

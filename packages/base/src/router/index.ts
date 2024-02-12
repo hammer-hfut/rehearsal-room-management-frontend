@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-const TemplateVue = () => import('../view/template.vue')
+// const TemplateVue = () => import('../view/template.vue')
+const MainVue = () => import('../components/mainMenu/index.vue')
 
 const main = {
     origin:
@@ -7,7 +8,7 @@ const main = {
     // TODO: 
     import.meta.env.PROD
         ? ''  // TODO: 线上地址
-        : 'http://192.168.31.205:8089',
+        : 'http://localhost:8089',
     pathName: '/main/'
 }
 
@@ -17,7 +18,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'Test',
-            component: TemplateVue,
+            component: MainVue,
             meta: {
                 ...main,
                 name: '测试',

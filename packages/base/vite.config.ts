@@ -24,7 +24,8 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url))
-        }
+        },
+        extensions: [ '.ts', '.js', '.vue', '.json' ]
     },
     server: {
         host: '0.0.0.0',

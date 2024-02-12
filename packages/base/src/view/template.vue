@@ -1,7 +1,7 @@
-<!--  -->
 <template>
     <div class="container">
         <iframe
+            ref="content"
             class="main-iframe"
             :src="src"
             name="content"

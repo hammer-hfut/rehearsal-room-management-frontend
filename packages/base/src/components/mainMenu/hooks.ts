@@ -1,0 +1,4 @@
+const useMenu = () => {
+}
+
+export { useMenu }
