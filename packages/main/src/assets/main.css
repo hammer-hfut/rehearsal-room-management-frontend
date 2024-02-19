@@ -1,4 +1,8 @@
 body {
+    background-color: #f7f8fa;
+    /* overflow: hidden; */
+}
+
+.my-white {
     background-color: #FFFFFF;
-    overflow: hidden;
 }

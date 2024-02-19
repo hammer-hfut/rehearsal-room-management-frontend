@@ -12,12 +12,14 @@ declare module 'vue' {
     AButton: typeof import('@arco-design/web-vue')['Button']
     AMenu: typeof import('@arco-design/web-vue')['Menu']
     AMenuItem: typeof import('@arco-design/web-vue')['MenuItem']
-        ASpace: typeof import('@arco-design/web-vue')['Space']
+    ASpace: typeof import('@arco-design/web-vue')['Space']
     ASubMenu: typeof import('@arco-design/web-vue')['SubMenu']
-        MainMenu: typeof import('./src/components/mainMenu/index.vue')['default']
+    MainMenu: typeof import('./src/components/mainMenu/index.vue')['default']
     Menu: typeof import('./src/components/menu/index.vue')['default']
+    MenuItem: typeof import('./src/components/mainMenu/menuItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SubMenuItem: typeof import('./src/components/mainMenu/subMenuItem.vue')['default']
     Template: typeof import('./src/components/template.vue')['default']
   }
 }

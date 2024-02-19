@@ -1,4 +1,0 @@
-const useMenu = () => {
-}
-
-export { useMenu }

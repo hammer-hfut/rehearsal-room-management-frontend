@@ -1,13 +1,12 @@
 <template>
     <section>
         <main-menu />
-        <template-frame />
+        <router-view />
     </section>
 </template>
 
 <script lang=ts setup>
 import MainMenu from '../components/mainMenu/index.vue'
-import TemplateFrame from './templateFrame.vue'
 
 </script>
 <style scoped lang=scss>

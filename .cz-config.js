@@ -18,7 +18,7 @@ module.exports = {
     ],
     useEmoji: true,
 
-    scopes: [...packages],
+    scopes: [...packages, 'both'],
 
     usePreparedCommit: false, // to re-use commit from ./.git/COMMIT_EDITMSG
     allowTicketNumber: false,

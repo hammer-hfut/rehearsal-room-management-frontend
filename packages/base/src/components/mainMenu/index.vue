@@ -1,8 +1,10 @@
 <template>
     <aside>
         <a-menu
+            v-model:selected-keys="menuKey"
             :style="{ width: '220px', height: '100%' }"
-            :default-selected-keys="['1']"
+            :default-selected-keys="[$route.path]"
+            level-index="0"
         >
             <div class="title">
                 <div class="content">
@@ -15,37 +17,8 @@
                     琴房管理系统
                 </div>
             </div>
-            <!-- TODO: 项目排列优化-->
-            <template 
-                v-for="(item) in menuItem"
-            >
-                <a-sub-menu
-                    v-if="item.children"
-                    :key="item.key"
-                >
-                    <template #icon>
-                        <component :is="item.icon" />
-                    </template>
-                    
-                    <template #title>{{ item.name }}</template>
-                    <a-menu-item
-                        v-for="(child_name, child_key) in item.children"
-                        :key="`${item.key}_${child_key}`"
-                    >
-                        {{ child_name }}
-                    </a-menu-item>
-                </a-sub-menu>
 
-                <a-menu-item
-                    v-else
-                    :key="item.key + 1"
-                >
-                    <template #icon>
-                        <component :is="item.icon" />
-                    </template>
-                    {{ item.name }}
-                </a-menu-item>
-            </template>
+            <sub-menu-item :menu-items="iframeRoutesInfo" />
         </a-menu>
     </aside>
 
@@ -70,9 +43,39 @@
     </footer>
 </template>
 
-<script lang=ts setup>
-import { menuItem } from './config'
+<script lang=ts>
 import { IconNotification } from '@arco-design/web-vue/es/icon'
+import { computed, ref } from 'vue'
+import { defineComponent } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import SubMenuItem from './subMenuItem.vue'
+import { watch } from 'vue'
+
+export default defineComponent({
+    components: {
+        IconNotification,
+        SubMenuItem
+    },
+    setup() {
+
+        const router = useRouter()
+        const route =  useRoute()
+
+        const  menuKey =  ref([ route.path ])
+
+        watch(menuKey, (v) => {
+            router.push(v[0])
+        }, { immediate: true })
+
+        // 获取子项目路由
+        const iframeRoutesInfo = computed(() => router.options.routes[0]?.children)
+        return {
+            menuKey,
+            iframeRoutesInfo
+        }
+    }
+})
+
 </script>
 
 <style scoped lang=scss>
