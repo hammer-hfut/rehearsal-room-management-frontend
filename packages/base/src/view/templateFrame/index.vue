@@ -55,11 +55,15 @@ const useFrameSrc = (iFrame: Ref<HTMLIFrameElement | null>) => {
     }
 
     const clientHeight = computed(() => iFrame.value?.clientHeight)
-    const postHeight = () => {
+    const clientWidth = computed(() => iFrame.value?.clientWidth)
+    const postClientWidthAndHeight = () => {
         nextTick(() => {
             postIframeMessage({
-                type: 'clientHeight',
-                data: clientHeight.value
+                type: 'client',
+                data: {
+                    height: clientHeight.value, 
+                    width: clientWidth.value
+                }
             })
         })
     }
@@ -67,7 +71,7 @@ const useFrameSrc = (iFrame: Ref<HTMLIFrameElement | null>) => {
     return {
         src,
         setSrc,
-        postHeight,
+        postClientWidthAndHeight,
         clientHeight
     }
 }
@@ -75,7 +79,7 @@ const useFrameSrc = (iFrame: Ref<HTMLIFrameElement | null>) => {
 export default defineComponent({
     setup() {
         const content = ref(null)
-        const { setSrc, postHeight, clientHeight,...useFrameSrcInfo } =useFrameSrc(content)
+        const { setSrc, postClientWidthAndHeight, clientHeight,...useFrameSrcInfo } = useFrameSrc(content)
         const router = useRouter()
 
         watch(() => router.currentRoute.value.path, () => {
@@ -85,7 +89,7 @@ export default defineComponent({
         })
 
         watch(() => clientHeight, () => {
-            postHeight()
+            postClientWidthAndHeight()
         },{
             immediate: true
         })
@@ -93,7 +97,7 @@ export default defineComponent({
         // iframe 回调初始化
         const postMsg = () => {
             setSrc(),
-            postHeight()
+            postClientWidthAndHeight()
         }
 
         return {

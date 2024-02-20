@@ -3,12 +3,14 @@
         <div class="main-notice my-white">
             <a-button @click="handleClickInfo">Info</a-button>
         </div>
+        <device />
         <!-- <div class="info-message my-white"></div> -->
     </section>
 </template>
 
 <script lang=ts setup>
 import { Modal } from '@arco-design/web-vue'
+import Device from '../device/index.vue'
 
 const handleClickInfo = () => {
     Modal.info({
