@@ -113,6 +113,72 @@ const testToken = async () => {
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 0 24px 0 rgb(228 235 248);
- 
+
+    .title-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            margin-left: 12px;
+            font-size: 28px;
+        }
+    }
+
+    .form-container {
+        display: flex;
+        flex: 3;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        margin-top: 20px;
+
+        .form-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+      
+        }
+
+        .login-button {
+            width: 100%;
+            height: 36px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+    }
+
+    .error-message {
+        min-height: 14px;
+        color: red;
+    }
+
+    .footer-container {
+        flex: 2;
+    }
+
+    .form-title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-bottom: 32px;
+
+        .form-title {
+            padding: 8px 0;
+            font-size: 16px;
+            color: #165dff;
+            border-bottom: 2.5px solid #165dff;
+        }
+    }
+
+    .form-item {
+        height: 36px;
+        margin-bottom: 32px;
+    }
 }
 </style>
