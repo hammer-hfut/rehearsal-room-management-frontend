@@ -1,8 +1,8 @@
 import request from '@/utils/network/request'
-import type { LoginData, LoginResponse } from './types'
+import type { LoginData, LoginResponse, RefreshKeyResponse } from './types'
 import type { Response } from '../types'
 
-export const requestLogin = (
+const requestLogin = (
     data: LoginData
 ): Promise<Response<LoginResponse>> => {
     return request({
@@ -12,16 +12,18 @@ export const requestLogin = (
     })
 }
 
-export const requestCaptchaImg = (): Promise<Response<string>> => {
+const requestRefreshToken = (key: number): Promise<Response<RefreshKeyResponse>> => {
     return request({
-        url: '/captcha/img',
-        method: 'GET'
+        url: `/auth/refresh/${key}`,
+        method: 'PUT'
     })
 }
 
-export const requestTestToken = (): Promise<Response<string>> => {
+const requestTestToken = (): Promise<Response<string>> => {
     return request({
         url: '/auth/token',
         method: 'GET'
     })
 }
+
+export { requestLogin, requestRefreshToken, requestTestToken }

@@ -7,9 +7,17 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    LoginForm: typeof import('./src/components/login/LoginForm.vue')['default'];
-    Logo: typeof import('./src/components/Logo.vue')['default'];
-    RouterLink: typeof import('vue-router')['RouterLink'];
-    RouterView: typeof import('vue-router')['RouterView'];
+    AButton: typeof import('@arco-design/web-vue')['Button']
+    AInput: typeof import('@arco-design/web-vue')['Input']
+    AInputPassword: typeof import('@arco-design/web-vue')['InputPassword']
+    AppLogo: typeof import('./src/components/AppLogo.vue')['default']
+    ASpace: typeof import('@arco-design/web-vue')['Space']
+    LoginForm: typeof import('./src/components/login/LoginForm.vue')['default']
+    Logo: typeof import('./src/components/Logo.vue')['default']
+    RoleList: typeof import('./src/components/role/RoleList.vue')['default']
+    RoleListItem: typeof import('./src/components/role/RoleListItem.vue')['default']
+    RoleTree: typeof import('./src/components/role/RoleTree.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

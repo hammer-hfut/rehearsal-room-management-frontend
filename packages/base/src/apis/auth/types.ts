@@ -7,11 +7,17 @@ export interface LoginData {
 export interface LoginResponse {
   utoken: string
   lifetime: number
+  utokenLifetime: number
   timestamp: number
   user: {
     realname: string
     basicRoles: Array<RoleWithBandId>
   }
+}
+
+export interface RefreshKeyResponse {
+  rand: number
+  lifetime: number
 }
 
 export interface RoleWithBandId {
