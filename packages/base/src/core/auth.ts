@@ -23,14 +23,15 @@ const login = async (loginData: LoginData) => {
     const key = res.data.timestamp + loginData.timestamp
     const keySpec = generateKeySpec(key.toString())
 
+    const now = Date.now()
     // TODO 迁移 localStorage
     globalStore.$patch({
         keySpec: keySpec,
         utoken: res.data.utoken,
         roles: res.data.user.basicRoles,
         key: key,
-        lifetime: res.data.lifetime,
-        utokenLifetime: res.data.utokenLifetime
+        lifetime: res.data.lifetime + now,
+        utokenLifetime: res.data.utokenLifetime + now
     })
 }
 
@@ -57,6 +58,7 @@ const refreshKey = async () => {
 
     const lifetime = res.data.lifetime
     const rand = res.data.rand
+    const now = Date.now()
     
     key += ((key % rand)%2 === 0)? -rand : rand
     const keySpec = generateKeySpec(key.toString())
@@ -65,7 +67,7 @@ const refreshKey = async () => {
     globalStore.$patch({
         key: key,
         keySpec: keySpec,
-        lifetime: lifetime
+        lifetime: lifetime + now
     })
     return true
 }
@@ -75,10 +77,8 @@ const refreshKey = async () => {
  * @returns key 过期的绝对时间
  */
 const utokenExpireTime = ()  => {
-    const globalStore = useGlobalStore()
-    const now = Date.now()
-    const lifetime = globalStore.$state.utokenLifetime
-    return new Date(now + lifetime)}
+    const lifetime = useGlobalStore().$state.utokenLifetime
+    return new Date(lifetime)}
 
 const isUtokenExpired = () => {
     const now = Date.now()
@@ -90,10 +90,8 @@ const isUtokenExpired = () => {
  * @returns key 过期的绝对时间
  */
 const keyExpireTime = ()  => {
-    const globalStore = useGlobalStore()
-    const now = Date.now()
-    const lifetime = globalStore.$state.lifetime
-    return new Date(now + lifetime)}
+    const lifetime =  useGlobalStore().$state.lifetime
+    return new Date(lifetime)}
 
 const isKeyExpired = () => {
     const now = Date.now()
