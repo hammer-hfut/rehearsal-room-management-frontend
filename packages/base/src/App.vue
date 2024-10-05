@@ -1,14 +1,8 @@
 <!--  -->
 <template>
-    <router-view />
+    <RouterView />
 </template>
 
-<script lang=ts setup>
+<script lang="ts" setup>
+import { RouterView } from 'vue-router'
 </script>
-
-<style lang="scss" scoped>
-section {
-    display: flex;
-}
-
-</style>

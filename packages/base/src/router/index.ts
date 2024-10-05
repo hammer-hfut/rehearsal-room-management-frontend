@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
-
 import {
     IconFile
 } from '@arco-design/web-vue/es/icon'
@@ -13,6 +12,9 @@ import {
 
 const MainVue = () => import('../view/main.vue')
 const TemplateVue = () => import('../view/templateFrame/index.vue')
+const LoginVue = () => import('../view/LoginPage.vue')
+const MyRolesVue = () => import('../view/MyRoles.vue')
+const ErrorVue = () => import('../view/ErrorPage.vue')
 
 const main = {
     origin:
@@ -117,6 +119,32 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URl),
     routes: [
         ...menuRouter,
+        {
+            path: '/',
+            name: 'Test',
+            component: TemplateVue,
+            meta: {
+                ...main,
+                name: '测试',
+                title: 'test',
+                auth: true
+            }
+        },
+        {
+            path: '/login-wjq',
+            name: 'Login',
+            component: LoginVue
+        },
+        {
+            path: '/roles',
+            name: 'Roles',
+            component: MyRolesVue
+        },
+        {
+            path: '/err',
+            name: 'Error',
+            component: ErrorVue
+        },
         {
             path: '/login',
             name: 'Login',
